@@ -23,7 +23,7 @@ module WxPay
       r
     end
 
-    GENERATE_APP_PAY_REQ_REQUIRED_FIELDS = %i(prepayid noncestr)
+    GENERATE_APP_PAY_REQ_REQUIRED_FIELDS = ["prepayid", "noncestr"]
     def self.generate_app_pay_req(params)
       params = {
         appid: WxPay.appid,
@@ -39,7 +39,8 @@ module WxPay
       params
     end
 
-    INVOKE_REFUND_REQUIRED_FIELDS = %i(transaction_id out_trade_no out_refund_no total_fee refund_fee)
+    #INVOKE_REFUND_REQUIRED_FIELDS = %i(transaction_id out_trade_no out_refund_no total_fee refund_fee)
+    INVOKE_REFUND_REQUIRED_FIELDS = ["transaction_id", "out_trade_no", "out_refund_no", "total_fee", "refund_fee"]
     def self.invoke_refund(params)
       params = {
         appid: WxPay.appid,
